@@ -1,5 +1,9 @@
 package antsystemproyect;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 /*
@@ -149,11 +153,32 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveGrafoActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        
+        this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoadGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadGrafoActionPerformed
-        
+        Import doc = new Import();
+        String [] ari = doc.getAri();
+        try {
+            doc.ReadDoc();
+            
+            grafo.setNumVerts(doc.getNumVertices());
+            
+                for (int i = 0; i < doc.getNumAri(); i++) {
+                    String [] n = ari[i].split(",");
+                    
+                    int v1 = Integer.parseInt(n[0])-1;
+                    int v2 = Integer.parseInt(n[1])-1;
+                    
+                    double s = Double.parseDouble(n[2]);
+                    
+                    grafo.addArista(v1, v2, s);     
+                }
+                showGrafo.setText(grafo.print());
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLoadGrafoActionPerformed
 
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
