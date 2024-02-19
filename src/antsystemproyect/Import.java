@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package antsystemproyect;
 
 import java.io.BufferedReader;
@@ -14,14 +11,14 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
-
+//Clase para cargar archivo txt
 public class Import {
 
     private int numVert = 0;
     private int numAri = 0;
     private String[] aristas = new String[20];
     
-    
+    //Metodo para leer el archivo txt
     public void ReadDoc() throws FileNotFoundException, IOException{
         
         boolean city = false; 

@@ -1,5 +1,7 @@
 package antsystemproyect;
 
+import javax.swing.JOptionPane;
+
 
 
 public class VtnaCiudad extends javax.swing.JFrame {
@@ -274,13 +276,37 @@ public class VtnaCiudad extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAddCityActionPerformed
 
     private void btnVtnaAddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVtnaAddCityActionPerformed
-        
+        int c1;
+
+        try{
+            c1 = Integer.parseInt(txtAddCity.getText());
+            
+            grafo.insertVertice(c1);
+            TEXT.setText("Este grafo tiene " + grafo.getNumVerts());
+            showMatriz.setText(grafo.print());
+            
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Error el input no es un num");   
+        }
  
     }//GEN-LAST:event_btnVtnaAddCityActionPerformed
 
     private void btnVtnaAddAriCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVtnaAddAriCityActionPerformed
 
-      
+        int c1;
+        int c2;
+        double p;
+        
+        try{
+            c1 = Integer.parseInt(txtAddCity1.getText());
+            c2 = Integer.parseInt(txtAddCity2.getText());
+            p = Double.parseDouble(txtAddpesoCity.getText());
+            grafo.addArista(c1-1, c2-1, p);
+            showMatriz.setText(grafo.print());
+            
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Error el input no es un num");   
+        }
         
     }//GEN-LAST:event_btnVtnaAddAriCityActionPerformed
 
@@ -295,9 +321,17 @@ public class VtnaCiudad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVtnPrincipalActionPerformed
 
     private void btnVtnaRemoveAriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVtnaRemoveAriActionPerformed
-        
-        
-        
+        int c1;
+        int c2;
+        try{
+            c1 = Integer.parseInt(txtDeleteAri1.getText());
+            c2 = Integer.parseInt(txtDeleteAri2.getText());
+            grafo.deleteArista(c1-1, c2-1);
+            showMatriz.setText(grafo.print());
+            
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Error el input no es un num");   
+        }
     }//GEN-LAST:event_btnVtnaRemoveAriActionPerformed
 
     private void txtAddCity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddCity1ActionPerformed
@@ -305,7 +339,16 @@ public class VtnaCiudad extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAddCity1ActionPerformed
 
     private void btnVtnaRemoveCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVtnaRemoveCityActionPerformed
-        
+        int c1;
+        try{
+            c1 = Integer.parseInt(txtRemoveCity.getText());
+            
+            grafo.removeVertice(c1);
+            showMatriz.setText(grafo.print());
+            
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Error el input no es un num");   
+        }
     }//GEN-LAST:event_btnVtnaRemoveCityActionPerformed
 
     /**
