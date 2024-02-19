@@ -1,10 +1,7 @@
 
 package antsystemproyect;
 
-/**
- *
- * @author chris
- */
+//Clase principal grafo con matriz de adyacencia
 import javax.swing.JOptionPane;
 
 public class Grafo {
@@ -43,7 +40,7 @@ public class Grafo {
         }
         numVerts += n;
     }
-    
+    //Eliminar Vertice
     public void removeVertice(int n){
         if(n >= numVerts){
             JOptionPane.showMessageDialog(null, "Error, se supera el numero de vertices","Error",JOptionPane.ERROR_MESSAGE);
@@ -76,7 +73,6 @@ public class Grafo {
         return Matrix;
     }
     
-    //eliminar vertice
 
     public void setMaxVerts(int maxVerts) {
         this.maxVerts = maxVerts;
