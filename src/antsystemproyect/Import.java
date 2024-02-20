@@ -11,14 +11,21 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
-//Clase para cargar archivo txt
+/**
+ * Clase para cargar Archivos Txt.
+ * @author Jesús
+ */
 public class Import {
 
     private int numVert = 0;
     private int numAri = 0;
     private String[] aristas = new String[20];
     
-    //Metodo para leer el archivo txt
+    /**
+     * Método para leer el archivo txt
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void ReadDoc() throws FileNotFoundException, IOException{
         
         boolean city = false; 
@@ -35,7 +42,9 @@ public class Import {
 
 		if (Value == JFileChooser.APPROVE_OPTION) {
 			File file = jfc.getSelectedFile();
-                        /* Llenando los arreglos*/
+                        /**
+                         * Llenando los arreglos.
+                         */
                         BufferedReader in;
                         in = new BufferedReader(new FileReader(file));
                         String line = in.readLine();
@@ -60,6 +69,11 @@ public class Import {
                         
 		}
     }
+    
+    /**
+     * Getters and Setters de los atributos.
+     * @return 
+     */
     
     public String[] getAri() {
         return aristas;

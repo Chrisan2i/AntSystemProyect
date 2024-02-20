@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package antsystemproyect;
 
 /**
- *
+ *Clase de interfaz realizar Simulación del programa.
  * @author Jesús
  */
 public class VtnaSimulacion extends javax.swing.JFrame {
@@ -40,7 +37,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtCiudadPartida = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCiudadLlegada = new javax.swing.JTextField();
         btnSimular = new javax.swing.JButton();
         btnVtnaSimularVolver = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -65,12 +62,24 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 153, 102));
         jLabel3.setText("Indica el número de Hormigas que van a participar:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 360, 20));
+
+        txtHormigasSimulacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHormigasSimulacionActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtHormigasSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 102));
         jLabel4.setText("Indica los valores para el grado de importancia de la feromona");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 390, 30));
+
+        txtGradoFeromona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGradoFeromonaActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtGradoFeromona, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 120, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -87,23 +96,46 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 153, 102));
         jLabel7.setText("(Si deseas usar valores por defecto NO ingresar nada por teclado)");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+
+        txtVisibilidadCiudades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVisibilidadCiudadesActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtVisibilidadCiudades, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 120, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 102));
         jLabel8.setText("Indica ciudad de partida:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 180, 20));
+
+        txtCiudadPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCiudadPartidaActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtCiudadPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 120, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 102));
         jLabel9.setText("Indica ciudad de llegada:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 170, 30));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 120, 30));
+
+        txtCiudadLlegada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCiudadLlegadaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCiudadLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 120, 30));
 
         btnSimular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSimular.setForeground(new java.awt.Color(0, 102, 102));
         btnSimular.setText("Simular");
+        btnSimular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimularActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSimular, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
 
         btnVtnaSimularVolver.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -122,12 +154,71 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Botón para devolver al menú principal.
+     * @param evt 
+     */
+    
     private void btnVtnaSimularVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVtnaSimularVolverActionPerformed
         this.setVisible(false);
         Principal ventana = new Principal();
         ventana.setVisible(true);
 
     }//GEN-LAST:event_btnVtnaSimularVolverActionPerformed
+
+    /**
+     * TextField para ingresar el número de hormigas que participarán en la simulación.
+     * @param evt 
+     */
+    
+    private void txtHormigasSimulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHormigasSimulacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHormigasSimulacionActionPerformed
+
+    /**
+     * TextField para cambiar el Grado de importancia de las Feromonas.
+     * @param evt 
+     */
+    
+    private void txtGradoFeromonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGradoFeromonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGradoFeromonaActionPerformed
+    
+    /**
+     * TextField para cambiar el grado de visibilidad de las ciudades.
+     * @param evt 
+     */
+    
+    private void txtVisibilidadCiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVisibilidadCiudadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVisibilidadCiudadesActionPerformed
+
+    /**
+     * TextField para indicar la ciudad de partida.
+     * @param evt 
+     */
+    
+    private void txtCiudadPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadPartidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCiudadPartidaActionPerformed
+
+    /**
+     * TextField para indicar la ciudad de llegada.
+     * @param evt 
+     */
+    
+    private void txtCiudadLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadLlegadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCiudadLlegadaActionPerformed
+
+    /**
+     * Botón para iniciar la simulación.
+     * @param evt 
+     */
+    
+    private void btnSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSimularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,8 +268,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JSpinner spinnerCiclos;
+    private javax.swing.JTextField txtCiudadLlegada;
     private javax.swing.JTextField txtCiudadPartida;
     private javax.swing.JTextField txtGradoFeromona;
     private javax.swing.JTextField txtHormigasSimulacion;
