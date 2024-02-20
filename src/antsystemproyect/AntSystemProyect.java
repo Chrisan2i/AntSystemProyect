@@ -14,7 +14,8 @@ public class AntSystemProyect {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Principal hormigas = new Principal();
+        hormigas.setVisible(true);
     }
     
 }

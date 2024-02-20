@@ -183,11 +183,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoadGrafoActionPerformed
 
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
-
+        GrafoLibrary graph= new GrafoLibrary();
+        graph.showGrafo(grafo.getNumVerts(), grafo.getMatrixAdy());
     }//GEN-LAST:event_btnVerGrafoActionPerformed
 
     private void btnBeingSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeingSimulationActionPerformed
-
+        VtnaSimulacion ventana = new VtnaSimulacion();
+        this.setVisible(false);
+        ventana.setVisible(true);
     }//GEN-LAST:event_btnBeingSimulationActionPerformed
 
     /**
