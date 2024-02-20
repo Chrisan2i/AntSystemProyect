@@ -4,22 +4,19 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Jesús
  */
 public class Principal extends javax.swing.JFrame {
+
     Grafo grafo = Global.getGrafo();
-    
-    
+
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -46,9 +43,10 @@ public class Principal extends javax.swing.JFrame {
         btnLoadGrafo = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnVerGrafo = new javax.swing.JButton();
-        btnBeingSimulation2 = new javax.swing.JButton();
+        btnBeingSimulation = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         showGrafo = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AntSystem");
@@ -75,7 +73,7 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(btnAddCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 200, 40));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("te sugerimos que empieces por añadir las ciudades\"");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 470, 50));
@@ -107,7 +105,7 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(btnLoadGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 200, 40));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("\"Para empezar con la simulación,");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 470, 50));
@@ -121,14 +119,14 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(btnVerGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 200, 40));
 
-        btnBeingSimulation2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnBeingSimulation2.setText("Iniciar Simulación");
-        btnBeingSimulation2.addActionListener(new java.awt.event.ActionListener() {
+        btnBeingSimulation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnBeingSimulation.setText("Iniciar Simulación");
+        btnBeingSimulation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBeingSimulation2ActionPerformed(evt);
+                btnBeingSimulationActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBeingSimulation2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 200, 40));
+        getContentPane().add(btnBeingSimulation, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 200, 40));
 
         showGrafo.setColumns(20);
         showGrafo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -138,6 +136,9 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(showGrafo);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 300, 170));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/FondoAntSystem.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -149,7 +150,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddCityActionPerformed
 
     private void btnSaveGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveGrafoActionPerformed
-        
+
     }//GEN-LAST:event_btnSaveGrafoActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -158,36 +159,36 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnLoadGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadGrafoActionPerformed
         Import doc = new Import();
-        String [] ari = doc.getAri();
+        String[] ari = doc.getAri();
         try {
             doc.ReadDoc();
-            
+
             grafo.setNumVerts(doc.getNumVertices());
-            
-                for (int i = 0; i < doc.getNumAri(); i++) {
-                    String [] n = ari[i].split(",");
-                    
-                    int v1 = Integer.parseInt(n[0])-1;
-                    int v2 = Integer.parseInt(n[1])-1;
-                    
-                    double s = Double.parseDouble(n[2]);
-                    
-                    grafo.addArista(v1, v2, s);     
-                }
-                showGrafo.setText(grafo.print());
-            
+
+            for (int i = 0; i < doc.getNumAri(); i++) {
+                String[] n = ari[i].split(",");
+
+                int v1 = Integer.parseInt(n[0]) - 1;
+                int v2 = Integer.parseInt(n[1]) - 1;
+
+                double s = Double.parseDouble(n[2]);
+
+                grafo.addArista(v1, v2, s);
+            }
+            showGrafo.setText(grafo.print());
+
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnLoadGrafoActionPerformed
 
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
-        
+
     }//GEN-LAST:event_btnVerGrafoActionPerformed
 
-    private void btnBeingSimulation2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeingSimulation2ActionPerformed
-              
-    }//GEN-LAST:event_btnBeingSimulation2ActionPerformed
+    private void btnBeingSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeingSimulationActionPerformed
+
+    }//GEN-LAST:event_btnBeingSimulationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,12 +227,13 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCity;
-    private javax.swing.JButton btnBeingSimulation2;
+    private javax.swing.JButton btnBeingSimulation;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLoadGrafo;
     private javax.swing.JButton btnSaveGrafo;
     private javax.swing.JButton btnVerGrafo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
