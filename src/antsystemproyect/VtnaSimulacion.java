@@ -1,15 +1,21 @@
 
 package antsystemproyect;
 
+import java.awt.HeadlessException;
+import javax.swing.JOptionPane;
 
-import javax.swing.SpinnerNumberModel;
+
+/*import antsystemproyect.AntOptimization;
+import java.awt.HeadlessException;
+import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;*/
 
 /**
  *Clase de interfaz para realizar Simulación del programa.
  * @author Jesús
  */
 public class VtnaSimulacion extends javax.swing.JFrame {
-
+    Grafo grafo = Global.getGrafo();
     /**
      * Creates new form VtnaSimulacion
      */
@@ -18,7 +24,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         
         //Validaciones de los componentes del Spinner.
         
-        SpinnerNumberModel ciclosSpn = new SpinnerNumberModel();
+        /*SpinnerNumberModel ciclosSpn = new SpinnerNumberModel();
         ciclosSpn.setMinimum(0);
         spinnerCiclos.setModel(ciclosSpn);
         SpinnerNumberModel hormigasSpn = new SpinnerNumberModel();
@@ -41,7 +47,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         spinnerCiudadPartida.setModel(ciudadPartidaSpn);
         SpinnerNumberModel ciudadLlegadaSpn = new SpinnerNumberModel();
         ciudadLlegadaSpn.setMinimum(0);
-        spinnerCiudadLlegada.setModel(ciudadLlegadaSpn);
+        spinnerCiudadLlegada.setModel(ciudadLlegadaSpn);&*/
         
         
     }
@@ -57,7 +63,6 @@ public class VtnaSimulacion extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        spinnerCiclos = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -68,13 +73,16 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         btnSimular = new javax.swing.JButton();
         btnVtnaSimularVolver = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        spinnerHormigasSimulacion = new javax.swing.JSpinner();
-        spinnerGradoFeromona = new javax.swing.JSpinner();
-        spinnerVisibilidadCiudades = new javax.swing.JSpinner();
-        spinnerEvaporaciónSimulación = new javax.swing.JSpinner();
-        spinnerCiudadPartida = new javax.swing.JSpinner();
-        spinnerCiudadLlegada = new javax.swing.JSpinner();
-        jLabel12 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TEXT = new javax.swing.JTextArea();
+        comida = new javax.swing.JTextField();
+        gradeP = new javax.swing.JTextField();
+        gradeV = new javax.swing.JTextField();
+        factorE = new javax.swing.JTextField();
+        numCiclos = new javax.swing.JTextField();
+        ciclos5 = new javax.swing.JTextField();
+        numAnts = new javax.swing.JTextField();
+        nido = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(625, 570));
@@ -91,13 +99,6 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         jLabel2.setText("Indica el número de ciclos que deseas realizar:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 330, 30));
 
-        spinnerCiclos.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerCiclosStateChanged(evt);
-            }
-        });
-        getContentPane().add(spinnerCiclos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 120, 30));
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 102));
         jLabel3.setText("Indica el número de Hormigas que van a participar:");
@@ -105,8 +106,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 102));
-        jLabel4.setText("Indica los valores para el grado de importancia de la feromona");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 390, 30));
+        jLabel4.setText("Indica los valores para el grado de importancia de la feromona:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 400, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 102));
@@ -115,8 +116,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 102));
-        jLabel6.setText("Indica los valores para el grado de visibilidad de las ciudades");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 380, 60));
+        jLabel6.setText("Indica los valores para el grado de visibilidad de las ciudades: ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 390, 60));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 102));
@@ -158,50 +159,67 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         jLabel11.setText("Indica ciudad de partida:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 180, 20));
 
-        spinnerHormigasSimulacion.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerHormigasSimulacionStateChanged(evt);
+        TEXT.setColumns(20);
+        TEXT.setRows(5);
+        jScrollPane1.setViewportView(TEXT);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 340, 350));
+
+        comida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comidaActionPerformed(evt);
             }
         });
-        getContentPane().add(spinnerHormigasSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 120, 30));
+        getContentPane().add(comida, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 120, 30));
 
-        spinnerGradoFeromona.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerGradoFeromonaStateChanged(evt);
+        gradeP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradePActionPerformed(evt);
             }
         });
-        getContentPane().add(spinnerGradoFeromona, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 120, 30));
+        getContentPane().add(gradeP, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 120, 30));
 
-        spinnerVisibilidadCiudades.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerVisibilidadCiudadesStateChanged(evt);
+        gradeV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeVActionPerformed(evt);
             }
         });
-        getContentPane().add(spinnerVisibilidadCiudades, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 120, 30));
+        getContentPane().add(gradeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 120, 30));
 
-        spinnerEvaporaciónSimulación.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerEvaporaciónSimulaciónStateChanged(evt);
+        factorE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                factorEActionPerformed(evt);
             }
         });
-        getContentPane().add(spinnerEvaporaciónSimulación, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 120, 30));
+        getContentPane().add(factorE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 120, 30));
 
-        spinnerCiudadPartida.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerCiudadPartidaStateChanged(evt);
+        numCiclos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numCiclosActionPerformed(evt);
             }
         });
-        getContentPane().add(spinnerCiudadPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 120, 30));
+        getContentPane().add(numCiclos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, 30));
 
-        spinnerCiudadLlegada.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinnerCiudadLlegadaStateChanged(evt);
+        ciclos5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ciclos5ActionPerformed(evt);
             }
         });
-        getContentPane().add(spinnerCiudadLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 120, 30));
+        getContentPane().add(ciclos5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, 30));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/ImagenSimulacion.jpg"))); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 530));
+        numAnts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numAntsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(numAnts, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 120, 30));
+
+        nido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nidoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 120, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -223,36 +241,78 @@ public class VtnaSimulacion extends javax.swing.JFrame {
      */
     
     private void btnSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularActionPerformed
-        // TODO add your handling code here:
+        try{
+            String result = "";
+            int antsAmount;
+            double m = grafo.getNumVerts();
+            
+            antsAmount = Integer.parseInt(numAnts.getText());
+         
+            double ti = 1/m;        
+           
+            System.out.println(antsAmount);
+            
+            AntOptimization optimus = new AntOptimization(antsAmount);  
+                    
+            int cycles = Integer.parseInt(numCiclos.getText());
+            int cont_c = 0;
+            System.out.println(cycles);
+                
+            double GPhermone = Double.parseDouble(gradeP.getText());
+            double GVisibility = Double.parseDouble(gradeV.getText());
+            int r = Integer.parseInt(nido.getText());
+            int s = Integer.parseInt(comida.getText());
+                
+            int cont = 0;  
+            //Cantidad de ciclos que pide el usuario
+            while (cont_c < cycles) {
+                    
+                cont_c ++;
+                //Funcion que simula el recorrido de las hormigas 
+                String re = optimus.Simulacion(ti, GPhermone, GVisibility, r, s,cont);
+                result += re;
+       
+                TEXT.setText(result);
+                cont ++;    
+            }
+                
+        } catch (HeadlessException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Haz ingresado un valor inválido!");
+        }  
+               
     }//GEN-LAST:event_btnSimularActionPerformed
 
-    private void spinnerCiclosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerCiclosStateChanged
+    private void comidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_spinnerCiclosStateChanged
+    }//GEN-LAST:event_comidaActionPerformed
 
-    private void spinnerHormigasSimulacionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerHormigasSimulacionStateChanged
+    private void gradePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradePActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_spinnerHormigasSimulacionStateChanged
+    }//GEN-LAST:event_gradePActionPerformed
 
-    private void spinnerGradoFeromonaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerGradoFeromonaStateChanged
+    private void gradeVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_spinnerGradoFeromonaStateChanged
+    }//GEN-LAST:event_gradeVActionPerformed
 
-    private void spinnerVisibilidadCiudadesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerVisibilidadCiudadesStateChanged
+    private void factorEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_factorEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_spinnerVisibilidadCiudadesStateChanged
+    }//GEN-LAST:event_factorEActionPerformed
 
-    private void spinnerEvaporaciónSimulaciónStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerEvaporaciónSimulaciónStateChanged
+    private void numCiclosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numCiclosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_spinnerEvaporaciónSimulaciónStateChanged
+    }//GEN-LAST:event_numCiclosActionPerformed
 
-    private void spinnerCiudadPartidaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerCiudadPartidaStateChanged
+    private void ciclos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciclos5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_spinnerCiudadPartidaStateChanged
+    }//GEN-LAST:event_ciclos5ActionPerformed
 
-    private void spinnerCiudadLlegadaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerCiudadLlegadaStateChanged
+    private void numAntsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numAntsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_spinnerCiudadLlegadaStateChanged
+    }//GEN-LAST:event_numAntsActionPerformed
+
+    private void nidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,11 +350,16 @@ public class VtnaSimulacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea TEXT;
     private javax.swing.JButton btnSimular;
     private javax.swing.JButton btnVtnaSimularVolver;
+    private javax.swing.JTextField ciclos5;
+    private javax.swing.JTextField comida;
+    private javax.swing.JTextField factorE;
+    private javax.swing.JTextField gradeP;
+    private javax.swing.JTextField gradeV;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -303,12 +368,9 @@ public class VtnaSimulacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JSpinner spinnerCiclos;
-    private javax.swing.JSpinner spinnerCiudadLlegada;
-    private javax.swing.JSpinner spinnerCiudadPartida;
-    private javax.swing.JSpinner spinnerEvaporaciónSimulación;
-    private javax.swing.JSpinner spinnerGradoFeromona;
-    private javax.swing.JSpinner spinnerHormigasSimulacion;
-    private javax.swing.JSpinner spinnerVisibilidadCiudades;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nido;
+    private javax.swing.JTextField numAnts;
+    private javax.swing.JTextField numCiclos;
     // End of variables declaration//GEN-END:variables
 }
