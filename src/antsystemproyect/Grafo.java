@@ -1,101 +1,147 @@
 
 package antsystemproyect;
 
-//Clase principal grafo con matriz de adyacencia
 import javax.swing.JOptionPane;
 
+/**
+ * Clase principal grafo con matriz de adyacencia
+ * @author Jesús
+ */
+
 public class Grafo {
-    
+    /**
+     * Atributos de la clase grafo.
+     */
     private int maxVerts;
     private int numVerts;
     private double[][] MatrixAdy;
     
-    //Constructor Grafo
+    /**
+     * Constructor de la clase.
+     * @param n 
+     */
     public Grafo(int n){
         maxVerts = n;
         numVerts = 0;
         MatrixAdy = new double[n][n];
     }
     
-    //Eliminar Arista
+    /**
+     * Agregar Arista.
+     * @param i
+     * @param j
+     * @param peso 
+     */
     public void addArista(int i,int j, double peso){
-        MatrixAdy [i][j] = MatrixAdy [j][i] = peso;
+        getMatrixAdy() [i][j] = getMatrixAdy() [j][i] = peso;
     }
     
-    //Eliminar una Arista
+    /**
+     * Eliminar Arista.
+     * @param i
+     * @param j 
+     */
     public void deleteArista(int i,int j){
-        MatrixAdy [i][j] = MatrixAdy [j][i] = 0;
+        getMatrixAdy() [i][j] = getMatrixAdy() [j][i] = 0;
     }
     
-    //Insertar un vertice
+    /**
+     * Insertar Vértice.
+     * @param n 
+     */
     public void insertVertice(int n){
-        if(0 == maxVerts - numVerts){
+        if(0 == getMaxVerts() - getNumVerts()){
             JOptionPane.showMessageDialog(null, "Error, se supera el numero de vertices","Error",JOptionPane.ERROR_MESSAGE);
         }else{
-            for (int i = 0; i < numVerts; i++) {
-                for (int j = numVerts; j < numVerts + n; j++) {
-                    MatrixAdy[i][j] = MatrixAdy[j][i] = 0;
+            for (int i = 0; i < getNumVerts(); i++) {
+                for (int j = getNumVerts(); j < getNumVerts() + n; j++) {
+                    getMatrixAdy()[i][j] = getMatrixAdy()[j][i] = 0;
                 }
             }
         }
-        numVerts += n;
+        setNumVerts(getNumVerts() + n);
     }
-    //Eliminar Vertice
+    /**
+     * Eliminar Vértice.
+     * @param n 
+     */
     public void removeVertice(int n){
-        if(n >= numVerts){
+        if(n >= getNumVerts()){
             JOptionPane.showMessageDialog(null, "Error, se supera el numero de vertices","Error",JOptionPane.ERROR_MESSAGE);
         }else{
-            for (int i = n; i < numVerts; i++) {
-                for (int j = 0; j < numVerts; j++){
-                   if(i == numVerts -1 || j == numVerts -1){
-                       MatrixAdy[i][j] = MatrixAdy[j][i] = 0;
+            for (int i = n; i < getNumVerts(); i++) {
+                for (int j = 0; j < getNumVerts(); j++){
+                   if(i == getNumVerts() -1 || j == getNumVerts() -1){
+                        getMatrixAdy()[i][j] = getMatrixAdy()[j][i] = 0;
                    }else{
-                       MatrixAdy[i][j] = MatrixAdy[i+1][j];
-                       MatrixAdy[j][i] = MatrixAdy[i][j];
+                        getMatrixAdy()[i][j] = getMatrixAdy()[i+1][j];
+                        getMatrixAdy()[j][i] = getMatrixAdy()[i][j];
                        
                    }
                 }
             }
-            numVerts --;
+            setNumVerts(getNumVerts() - 1);
         }
     }
     
-    //Imprimir Matriz
+    /**
+     * Imprimir Matriz.
+     * @return 
+     */
     public String print(){
         String Matrix = "";
-        System.out.println("La matriz tiene " + numVerts + " vertices \n");
-        for (int i = 0; i < numVerts; i++) {
-            for (int j = 0; j < numVerts; j++) {
-                Matrix += "[" + MatrixAdy[i][j] + "]" + " ";
+        System.out.println("La matriz tiene " + getNumVerts() + " vertices \n");
+        for (int i = 0; i < getNumVerts(); i++) {
+            for (int j = 0; j < getNumVerts(); j++) {
+                Matrix += "[" + getMatrixAdy()[i][j] + "]" + " ";
             }
             Matrix = Matrix + "\n";
         }
         return Matrix;
     }
-    
 
-    public void setMaxVerts(int maxVerts) {
-        this.maxVerts = maxVerts;
-    }
-
-    public void setNumVerts(int numVerts) {
-        this.numVerts = numVerts;
-    }
-
-    public void setMatrixAdy(double[][] MatrixAdy) {
-        this.MatrixAdy = MatrixAdy;
-    }
-
+    /**
+     * @return the maxVerts
+     */
     public int getMaxVerts() {
         return maxVerts;
     }
 
+    /**
+     * @param maxVerts the maxVerts to set
+     */
+    public void setMaxVerts(int maxVerts) {
+        this.maxVerts = maxVerts;
+    }
+
+    /**
+     * @return the numVerts
+     */
     public int getNumVerts() {
         return numVerts;
     }
 
+    /**
+     * @param numVerts the numVerts to set
+     */
+    public void setNumVerts(int numVerts) {
+        this.numVerts = numVerts;
+    }
+
+    /**
+     * @return the MatrixAdy
+     */
     public double[][] getMatrixAdy() {
         return MatrixAdy;
     }
+
+    /**
+     * @param MatrixAdy the MatrixAdy to set
+     */
+    public void setMatrixAdy(double[][] MatrixAdy) {
+        this.MatrixAdy = MatrixAdy;
+    }
+    
+    
 }
 
