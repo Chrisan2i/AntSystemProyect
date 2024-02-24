@@ -45,8 +45,14 @@ public class AntOptimization {
         while (cont < antsAmount) {
             double currentDistance = 0;
             Ant hormiga = new Ant(grafo, r,s);
+
+            hormiga.setΑ(phermona_grade);
+            hormiga.setΒ(visibility_grade);
+            
+
             hormiga.setΑ(gradeP);
             hormiga.setΒ(gradeV);
+
 
             while (hormiga.getR() != hormiga.getS() && hormiga.getTrapped() == false) {
                 hormiga.calculateProbabilities(grafo, phermonaMatrix);
@@ -72,16 +78,34 @@ public class AntOptimization {
             
             at += 1/currentDistance;
                             
+<<<<<<< HEAD
             if (shortestDistance == 0 || currentDistance < shortestDistance) {
                 bestPath = hormiga.print();
                 hormiga.setArray(hormiga.getCitiesHistory());
                 
+=======
+            if (shortestDistance == 0) {
+                shortestDistance = currentDistance;
+            } else if (currentDistance < shortestDistance) {
+                shortestDistance = currentDistance;
+                
+              
+>>>>>>> 0dde18a7b3ed9475d97a619b270314a43ccfa98f
             }
             result += "Hormiga #" + (cont + 1) + ":\n" + "Distancia recorrida: " + currentDistance + "\n" + hormiga.print() + "\n";
             
             cont ++;  
         } 
+<<<<<<< HEAD
         result += "Mejor Recorrido: " + bestPath  + "Distancia " + shortestDistance;
+=======
+
+        result += "RECORRIDO MÁS OPTIMO: " + shortestDistance + "\n";
+        
+
+        result += "Mejor Recorrido: " + shortestDistance + "\n";
+
+>>>>>>> 0dde18a7b3ed9475d97a619b270314a43ccfa98f
             
     return result;
     }

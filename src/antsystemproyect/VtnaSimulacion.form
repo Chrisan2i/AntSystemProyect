@@ -255,6 +255,10 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="comida">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comidaActionPerformed"/>
       </Events>
@@ -265,6 +269,10 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="gradeP">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gradePActionPerformed"/>
       </Events>
@@ -275,6 +283,10 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="gradeV">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="2"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gradeVActionPerformed"/>
       </Events>
@@ -285,6 +297,10 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="factorE">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="0.5"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="factorEActionPerformed"/>
       </Events>
@@ -295,6 +311,10 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="numCiclos">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numCiclosActionPerformed"/>
       </Events>
@@ -305,6 +325,10 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="numAnts">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numAntsActionPerformed"/>
       </Events>
@@ -315,6 +339,10 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="nido">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nidoActionPerformed"/>
       </Events>
