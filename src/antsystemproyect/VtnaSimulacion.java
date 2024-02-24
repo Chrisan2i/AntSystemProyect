@@ -266,7 +266,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
                 
             } 
             GraphStream visual = new GraphStream();
-            visual.showGrafo();
+            visual.showGrafo(grafo.getArray());
                 
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Ingrese un valor valido");

@@ -13,9 +13,8 @@ import org.graphstream.ui.view.Viewer;
  */
 
 public class GraphStream {
-    Grafo graph = GlobalGrafo.getGrafo();
     Graph grafo = new SingleGraph("GraphStream");
-    
+    Grafo graph = GlobalGrafo.getGrafo();
     /**
      * Método para visualizar el grafo creado.
      * @param node
@@ -24,17 +23,8 @@ public class GraphStream {
      * @param matrixAdy 
      */
     
-    public static void setNodeColor(Node node, String color) {
-        node.setAttribute("ui.style", "fill-color: " + color + ";");
-    }
-    
-    public static void setEdgeColor(Edge edge, String color) {
-        edge.setAttribute("ui.style", "fill-color: " + color + ";");
-    }
-    
-    public void showGrafo(){
+    public void showGrafo(int[] array){
         System.setProperty("org.graphstream.ui", "swing");
-        
         grafo.setAttribute("ui.stylesheet", styleSheet);
 
         grafo.setStrict(false);
@@ -56,16 +46,30 @@ public class GraphStream {
         }
         grafo.nodes().forEach(n -> n.setAttribute("label", n.getId()));
         grafo.edges().forEach(e -> e.setAttribute("label", "" + (double) e.getNumber("length")));
-               
+        
+
+        if(array != null){
+            for (int i = 0; array[i] != 0 && i < array.length; i++) {
+                int x = array[i];
+                int y = array[i+1];
+                
+                
+                Node cx = grafo.getNode(Integer.toString(x));
+                cx.setAttribute("ui.class", "root");
+                
+                Node cy = grafo.getNode(Integer.toString(y));
+                
+                if(cy != null){
+                    Edge edge = cx.getEdgeBetween(cy);
+                    edge.setAttribute("ui.style", "fill-color:green;");
+                }
+            }
+        }       
+        
+        
         Viewer viewer = grafo.display();
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
-        
-        if(graph.getArray() != null){
-            for (int i = 0; i < graph.getArray().length; i++) {
-                setNodeColor(grafo.getNode(Integer.toString(graph.getArray()[i])),"green");
-               
-            }
-        }
+
     }
     
 
@@ -81,5 +85,6 @@ public class GraphStream {
             "    stroke-color: blackbold;"+
             "    stroke-width: 1px;"+
         "}"+
-        "edge { arrow-shape: arrow; arrow-size: 20px, 4px; fill-color: skyblue; text-size: 15; text-color: blue; size: 7px; text-alignment: center;}";
+        "edge { arrow-shape: arrow; arrow-size: 20px, 4px; fill-color: skyblue; text-size: 15; text-color: blue; size: 7px; text-alignment: center;}"+
+            "node.root{fill-color:green;}";
 }

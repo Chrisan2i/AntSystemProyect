@@ -71,7 +71,7 @@ public class AntOptimization {
                 }
             }
             
-//            at += 1/currentDistance;
+            at += 1/currentDistance;
 
             if (shortestDistance == 0 || currentDistance < shortestDistance) {
                 bestPath = hormiga.print();

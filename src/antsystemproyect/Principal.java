@@ -234,7 +234,7 @@ public class Principal extends javax.swing.JFrame {
     
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
         GraphStream visual = new GraphStream();
-        visual.showGrafo();
+        visual.showGrafo(grafo.getArray());
     }//GEN-LAST:event_btnVerGrafoActionPerformed
 
     /**
