@@ -69,6 +69,7 @@ public class GrafoLibrary {
         "node {"+
             "    shape: circle;"+
             "    size: 40px;"+
+            " text-size: 25;"+
             " text-size: 15;"+
             "    fill-mode: plain;"+
             "    fill-color: blue;"+

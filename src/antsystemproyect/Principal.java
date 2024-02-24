@@ -172,7 +172,15 @@ public class Principal extends javax.swing.JFrame {
      */
     
     private void btnSaveGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveGrafoActionPerformed
+        FileChosser doc = new FileChosser();
+        
+        try {
+            doc.GuardarTxt();
 
+
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnSaveGrafoActionPerformed
 
     /**
@@ -190,7 +198,7 @@ public class Principal extends javax.swing.JFrame {
      */
     
     private void btnLoadGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadGrafoActionPerformed
-        Import doc = new Import();
+        FileChosser doc = new FileChosser();
         String[] ari = doc.getAri();
         try {
             doc.ReadDoc();

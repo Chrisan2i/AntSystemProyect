@@ -21,10 +21,14 @@ public class VtnaSimulacion extends javax.swing.JFrame {
      */
     public VtnaSimulacion() {
         initComponents();
+
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+
         
         //Validaciones de los componentes del Spinner.
         
-        
+
         
     }
 
@@ -144,6 +148,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 340, 350));
 
+        comida.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        comida.setText("0");
         comida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comidaActionPerformed(evt);
@@ -151,6 +157,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         });
         getContentPane().add(comida, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 120, 30));
 
+        gradeP.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        gradeP.setText("1");
         gradeP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gradePActionPerformed(evt);
@@ -158,6 +166,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         });
         getContentPane().add(gradeP, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 120, 30));
 
+        gradeV.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        gradeV.setText("2");
         gradeV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gradeVActionPerformed(evt);
@@ -165,6 +175,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         });
         getContentPane().add(gradeV, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 120, 30));
 
+        factorE.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        factorE.setText("0.5");
         factorE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 factorEActionPerformed(evt);
@@ -172,6 +184,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         });
         getContentPane().add(factorE, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 120, 30));
 
+        numCiclos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        numCiclos.setText("0");
         numCiclos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numCiclosActionPerformed(evt);
@@ -179,6 +193,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         });
         getContentPane().add(numCiclos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, 120, 30));
 
+        numAnts.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        numAnts.setText("0");
         numAnts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numAntsActionPerformed(evt);
@@ -186,6 +202,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         });
         getContentPane().add(numAnts, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 120, 30));
 
+        nido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        nido.setText("0");
         nido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nidoActionPerformed(evt);
@@ -217,7 +235,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
     
     private void btnSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularActionPerformed
         try{
-            String result = "";
+            
             int antsAmount;
             double m = grafo.getNumVerts();
             
@@ -227,24 +245,22 @@ public class VtnaSimulacion extends javax.swing.JFrame {
            
             System.out.println(antsAmount);
             
-            AntOptimization optimus = new AntOptimization(antsAmount);  
-                    
+            AntOptimization optimus = new AntOptimization(antsAmount);         
             int cycles = Integer.parseInt(numCiclos.getText());
-            int cont_c = 0;
-            System.out.println(cycles);
-                
             double GPhermone = Double.parseDouble(gradeP.getText());
             double GVisibility = Double.parseDouble(gradeV.getText());
+            double eva = Double.parseDouble(factorE.getText());
             int r = Integer.parseInt(nido.getText());
             int s = Integer.parseInt(comida.getText());
-                
+            String result = "";
+            int cont_c = 0;    
             int cont = 0;  
             //Cantidad de ciclos que pide el usuario
             while (cont_c < cycles) {
                     
                 cont_c ++;
                 //Funcion que simula el recorrido de las hormigas 
-                String re = optimus.Simulacion(ti, GPhermone, GVisibility, r, s,cont);
+                String re = optimus.Simulacion(ti, GPhermone, GVisibility, r, s,cont,eva);
                 result += re;
        
                 TEXT.setText(result);
@@ -252,7 +268,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
             }
                 
         } catch (HeadlessException | NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Haz ingresado un valor inválido!");
+            JOptionPane.showMessageDialog(null, "Ingrese un valor valido");
         }  
                
     }//GEN-LAST:event_btnSimularActionPerformed

@@ -67,7 +67,7 @@ public class Ant {
                 }
             }
 
-        // Variable probabilidad
+        
         Probabilities = new double[citiesCont];
         int idx = 0;
         
@@ -89,7 +89,6 @@ public class Ant {
             }
         }
 
-        // Analizamos el despalzamiento
         if (Probabilities.length == 0) {
             visited = true;
         }
