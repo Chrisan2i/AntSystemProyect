@@ -80,7 +80,6 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         gradeV = new javax.swing.JTextField();
         factorE = new javax.swing.JTextField();
         numCiclos = new javax.swing.JTextField();
-        ciclos5 = new javax.swing.JTextField();
         numAnts = new javax.swing.JTextField();
         nido = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -135,7 +134,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         jLabel9.setText("Indica ciudad de llegada:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 170, 30));
 
-        btnSimular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSimular.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnSimular.setForeground(new java.awt.Color(0, 102, 102));
         btnSimular.setText("Simular");
         btnSimular.addActionListener(new java.awt.event.ActionListener() {
@@ -143,9 +142,9 @@ public class VtnaSimulacion extends javax.swing.JFrame {
                 btnSimularActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSimular, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
+        getContentPane().add(btnSimular, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 250, 50));
 
-        btnVtnaSimularVolver.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnVtnaSimularVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnVtnaSimularVolver.setForeground(new java.awt.Color(0, 102, 102));
         btnVtnaSimularVolver.setText("Volver");
         btnVtnaSimularVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +152,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
                 btnVtnaSimularVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVtnaSimularVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 80, 30));
+        getContentPane().add(btnVtnaSimularVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 480, 130, 50));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 102));
@@ -192,28 +191,21 @@ public class VtnaSimulacion extends javax.swing.JFrame {
                 factorEActionPerformed(evt);
             }
         });
-        getContentPane().add(factorE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 120, 30));
+        getContentPane().add(factorE, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 120, 30));
 
         numCiclos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numCiclosActionPerformed(evt);
             }
         });
-        getContentPane().add(numCiclos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, 30));
-
-        ciclos5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ciclos5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ciclos5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, 30));
+        getContentPane().add(numCiclos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, 120, 30));
 
         numAnts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numAntsActionPerformed(evt);
             }
         });
-        getContentPane().add(numAnts, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 120, 30));
+        getContentPane().add(numAnts, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 120, 30));
 
         nido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,10 +298,6 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numCiclosActionPerformed
 
-    private void ciclos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciclos5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ciclos5ActionPerformed
-
     private void numAntsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numAntsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numAntsActionPerformed
@@ -357,7 +345,6 @@ public class VtnaSimulacion extends javax.swing.JFrame {
     private javax.swing.JTextArea TEXT;
     private javax.swing.JButton btnSimular;
     private javax.swing.JButton btnVtnaSimularVolver;
-    private javax.swing.JTextField ciclos5;
     private javax.swing.JTextField comida;
     private javax.swing.JTextField factorE;
     private javax.swing.JTextField gradeP;
