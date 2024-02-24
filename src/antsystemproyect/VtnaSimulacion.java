@@ -21,34 +21,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
      */
     public VtnaSimulacion() {
         initComponents();
-        
-        //Validaciones de los componentes del Spinner.
-        
-        /*SpinnerNumberModel ciclosSpn = new SpinnerNumberModel();
-        ciclosSpn.setMinimum(0);
-        spinnerCiclos.setModel(ciclosSpn);
-        SpinnerNumberModel hormigasSpn = new SpinnerNumberModel();
-        hormigasSpn.setMinimum(0);
-        spinnerHormigasSimulacion.setModel(hormigasSpn);
-        SpinnerNumberModel feromonaSpn = new SpinnerNumberModel();
-        feromonaSpn.setMinimum(0);
-        feromonaSpn.setValue(1);
-        spinnerGradoFeromona.setModel(feromonaSpn);
-        SpinnerNumberModel visibilidadSpn = new SpinnerNumberModel();
-        visibilidadSpn.setMinimum(0);
-        visibilidadSpn.setValue(2);
-        spinnerVisibilidadCiudades.setModel(visibilidadSpn);
-        SpinnerNumberModel evaporacionSpn = new SpinnerNumberModel();
-        evaporacionSpn.setMinimum(0);
-        evaporacionSpn.setValue(0.5);
-        spinnerEvaporaciónSimulación.setModel(evaporacionSpn);
-        SpinnerNumberModel ciudadPartidaSpn = new SpinnerNumberModel();
-        ciudadPartidaSpn.setMinimum(0);
-        spinnerCiudadPartida.setModel(ciudadPartidaSpn);
-        SpinnerNumberModel ciudadLlegadaSpn = new SpinnerNumberModel();
-        ciudadLlegadaSpn.setMinimum(0);
-        spinnerCiudadLlegada.setModel(ciudadLlegadaSpn);&*/
-        
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         
     }
 
@@ -238,7 +212,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
     
     private void btnSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularActionPerformed
         try{
-            String result = "";
+            
             int antsAmount;
             double m = grafo.getNumVerts();
             
@@ -248,24 +222,22 @@ public class VtnaSimulacion extends javax.swing.JFrame {
            
             System.out.println(antsAmount);
             
-            AntOptimization optimus = new AntOptimization(antsAmount);  
-                    
+            AntOptimization optimus = new AntOptimization(antsAmount);         
             int cycles = Integer.parseInt(numCiclos.getText());
-            int cont_c = 0;
-            System.out.println(cycles);
-                
             double GPhermone = Double.parseDouble(gradeP.getText());
             double GVisibility = Double.parseDouble(gradeV.getText());
+            double eva = Double.parseDouble(factorE.getText());
             int r = Integer.parseInt(nido.getText());
             int s = Integer.parseInt(comida.getText());
-                
+            String result = "";
+            int cont_c = 0;    
             int cont = 0;  
             //Cantidad de ciclos que pide el usuario
             while (cont_c < cycles) {
                     
                 cont_c ++;
                 //Funcion que simula el recorrido de las hormigas 
-                String re = optimus.Simulacion(ti, GPhermone, GVisibility, r, s,cont);
+                String re = optimus.Simulacion(ti, GPhermone, GVisibility, r, s,cont,eva);
                 result += re;
        
                 TEXT.setText(result);
@@ -273,7 +245,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
             }
                 
         } catch (HeadlessException | NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Haz ingresado un valor inválido!");
+            JOptionPane.showMessageDialog(null, "Ingrese un valor valido");
         }  
                
     }//GEN-LAST:event_btnSimularActionPerformed
