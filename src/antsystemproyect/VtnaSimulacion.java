@@ -21,15 +21,14 @@ public class VtnaSimulacion extends javax.swing.JFrame {
      */
     public VtnaSimulacion() {
         initComponents();
-<<<<<<< HEAD
+
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-=======
+
         
         //Validaciones de los componentes del Spinner.
         
-        
->>>>>>> 8e697aa9433c5d78bfe18f46348924022c40965a
+
         
     }
 
