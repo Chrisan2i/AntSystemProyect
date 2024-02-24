@@ -33,7 +33,7 @@ public class AntOptimization {
         String result="";
         double shortestDistance = 0;
         
-        
+        String bestPath =" ";
         for (int i = 0; i < grafo.getMaxVerts(); i++) {
             for (int j = 0; j < grafo.getMaxVerts(); j++) {
                 phermonaMatrix[i][j] = t;
@@ -72,18 +72,16 @@ public class AntOptimization {
             
             at += 1/currentDistance;
                             
-            if (shortestDistance == 0) {
-                shortestDistance = currentDistance;
-            } else if (currentDistance < shortestDistance) {
-                shortestDistance = currentDistance;
+            if (shortestDistance == 0 || currentDistance < shortestDistance) {
+                bestPath = hormiga.print();
+                hormiga.setArray(hormiga.getCitiesHistory());
+                
             }
-
-            
             result += "Hormiga #" + (cont + 1) + ":\n" + "Distancia recorrida: " + currentDistance + "\n" + hormiga.print() + "\n";
             
             cont ++;  
         } 
-        result += "Mejor Recorrido: " + shortestDistance + "\n";
+        result += "Mejor Recorrido: " + bestPath  + "Distancia " + shortestDistance;
             
     return result;
     }

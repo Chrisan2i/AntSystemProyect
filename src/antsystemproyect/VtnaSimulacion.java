@@ -27,9 +27,6 @@ public class VtnaSimulacion extends javax.swing.JFrame {
 
         
         //Validaciones de los componentes del Spinner.
-        
-
-        
     }
 
     /**
