@@ -1,5 +1,7 @@
 package antsystemproyect;
 
+
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,6 +47,7 @@ public class Principal extends javax.swing.JFrame {
         setTitle("AntSystem");
         setBounds(new java.awt.Rectangle(0, 0, 50000, 100));
         setLocation(new java.awt.Point(0, 0));
+        setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(700, 550));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -59,6 +62,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnAddCity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAddCity.setText("Agregar o Eliminar Ciudad");
+        btnAddCity.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAddCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddCityActionPerformed(evt);
@@ -73,6 +77,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnSaveGrafo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSaveGrafo.setText("Guardar Grafo");
+        btnSaveGrafo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSaveGrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveGrafoActionPerformed(evt);
@@ -82,6 +87,15 @@ public class Principal extends javax.swing.JFrame {
 
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnExit.setText("Salir");
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+        });
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -91,6 +105,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnLoadGrafo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnLoadGrafo.setText("Cargar Grafo");
+        btnLoadGrafo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLoadGrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoadGrafoActionPerformed(evt);
@@ -105,6 +120,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnVerGrafo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnVerGrafo.setText("Mostrar Grafo");
+        btnVerGrafo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVerGrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerGrafoActionPerformed(evt);
@@ -114,6 +130,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnBeingSimulation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBeingSimulation.setText("Iniciar Simulación");
+        btnBeingSimulation.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBeingSimulation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBeingSimulationActionPerformed(evt);
@@ -226,6 +243,16 @@ public class Principal extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_btnBeingSimulationActionPerformed
 
+    
+    
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+       
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+
+    }//GEN-LAST:event_btnExitMouseExited
+    
     /**
      * @param args the command line arguments
      */

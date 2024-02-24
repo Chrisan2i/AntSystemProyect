@@ -87,6 +87,7 @@ public class VtnaCiudad extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
         btnVtnaRemoveAri.setText("Eliminar");
+        btnVtnaRemoveAri.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVtnaRemoveAri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVtnaRemoveAriActionPerformed(evt);
@@ -110,6 +111,7 @@ public class VtnaCiudad extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 40, 390, 30));
 
         btnVtnaAddCity.setText("Agregar");
+        btnVtnaAddCity.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVtnaAddCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVtnaAddCityActionPerformed(evt);
@@ -168,6 +170,7 @@ public class VtnaCiudad extends javax.swing.JFrame {
         getContentPane().add(txtDeleteAristaCiudadLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 70, 30));
 
         btnVtnPrincipal.setText("Menu Principal");
+        btnVtnPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVtnPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVtnPrincipalActionPerformed(evt);
@@ -214,6 +217,7 @@ public class VtnaCiudad extends javax.swing.JFrame {
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 30, -1));
 
         btnVtnaAddAristaCity.setText("Agregar");
+        btnVtnaAddAristaCity.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVtnaAddAristaCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVtnaAddAristaCityActionPerformed(evt);
@@ -222,6 +226,7 @@ public class VtnaCiudad extends javax.swing.JFrame {
         getContentPane().add(btnVtnaAddAristaCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 90, 30));
 
         btnVtnaRemoveCity.setText("Eliminar");
+        btnVtnaRemoveCity.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVtnaRemoveCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVtnaRemoveCityActionPerformed(evt);
