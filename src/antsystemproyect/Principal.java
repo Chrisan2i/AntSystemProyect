@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class Principal extends javax.swing.JFrame {
 
     Grafo grafo = GlobalGrafo.getGrafo();
-    GraphStream visual = GlobalGraphStream.getGraph();
+    
 
     public Principal() {
         initComponents();
@@ -233,6 +233,7 @@ public class Principal extends javax.swing.JFrame {
      */
     
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
+        GraphStream visual = new GraphStream();
         visual.showGrafo();
     }//GEN-LAST:event_btnVerGrafoActionPerformed
 

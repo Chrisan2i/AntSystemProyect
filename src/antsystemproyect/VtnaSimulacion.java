@@ -16,7 +16,7 @@ import javax.swing.SpinnerNumberModel;*/
  */
 public class VtnaSimulacion extends javax.swing.JFrame {
     Grafo grafo = GlobalGrafo.getGrafo();
-    GraphStream visual = GlobalGraphStream.getGraph();
+    
     /**
      * Creates new form VtnaSimulacion
      */
@@ -264,8 +264,9 @@ public class VtnaSimulacion extends javax.swing.JFrame {
                 TEXT.setText(result);
                 cont ++;    
                 
-            }   visual.Uptdate();
-                visual.showGrafo();
+            } 
+            GraphStream visual = new GraphStream();
+            visual.showGrafo();
                 
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Ingrese un valor valido");

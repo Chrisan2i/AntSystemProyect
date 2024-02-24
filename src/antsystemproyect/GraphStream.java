@@ -14,7 +14,7 @@ import org.graphstream.ui.view.Viewer;
 
 public class GraphStream {
     Grafo graph = GlobalGrafo.getGrafo();
-    Graph grafo;
+    Graph grafo = new SingleGraph("GraphStream");
     
     /**
      * Método para visualizar el grafo creado.
@@ -34,7 +34,7 @@ public class GraphStream {
     
     public void showGrafo(){
         System.setProperty("org.graphstream.ui", "swing");
-        grafo = new SingleGraph("GraphStream_");
+        
         grafo.setAttribute("ui.stylesheet", styleSheet);
 
         grafo.setStrict(false);
@@ -59,10 +59,7 @@ public class GraphStream {
                
         Viewer viewer = grafo.display();
         viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
-    }
-    
-    public void Uptdate(){
-        grafo.setAttribute("ui.stylesheet", styleSheet);
+        
         if(graph.getArray() != null){
             for (int i = 0; i < graph.getArray().length; i++) {
                 setNodeColor(grafo.getNode(Integer.toString(graph.getArray()[i])),"green");
@@ -70,6 +67,7 @@ public class GraphStream {
             }
         }
     }
+    
 
     protected static String styleSheet =
         "node {"+
