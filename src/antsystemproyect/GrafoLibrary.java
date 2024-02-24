@@ -51,12 +51,12 @@ public class GrafoLibrary {
         "node {"+
             "    shape: circle;"+
             "    size: 40px;"+
-            " text-size: 12;"+
+            " text-size: 15;"+
             "    fill-mode: plain;"+
-            "    fill-color: orange;"+
+            "    fill-color: blue;"+
             "    stroke-mode: plain;"+
-            "    stroke-color: black;"+
+            "    stroke-color: blackbold;"+
             "    stroke-width: 1px;"+
         "}"+
-        "edge { arrow-shape: arrow; arrow-size: 20px, 4px; }";
+        "edge { arrow-shape: arrow; arrow-size: 20px, 4px; fill-color: skyblue; text-size: 15; text-color: blue; size: 7px; text-alignment: center;}";
 }

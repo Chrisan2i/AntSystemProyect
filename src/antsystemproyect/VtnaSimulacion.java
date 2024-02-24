@@ -24,30 +24,6 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         
         //Validaciones de los componentes del Spinner.
         
-        /*SpinnerNumberModel ciclosSpn = new SpinnerNumberModel();
-        ciclosSpn.setMinimum(0);
-        spinnerCiclos.setModel(ciclosSpn);
-        SpinnerNumberModel hormigasSpn = new SpinnerNumberModel();
-        hormigasSpn.setMinimum(0);
-        spinnerHormigasSimulacion.setModel(hormigasSpn);
-        SpinnerNumberModel feromonaSpn = new SpinnerNumberModel();
-        feromonaSpn.setMinimum(0);
-        feromonaSpn.setValue(1);
-        spinnerGradoFeromona.setModel(feromonaSpn);
-        SpinnerNumberModel visibilidadSpn = new SpinnerNumberModel();
-        visibilidadSpn.setMinimum(0);
-        visibilidadSpn.setValue(2);
-        spinnerVisibilidadCiudades.setModel(visibilidadSpn);
-        SpinnerNumberModel evaporacionSpn = new SpinnerNumberModel();
-        evaporacionSpn.setMinimum(0);
-        evaporacionSpn.setValue(0.5);
-        spinnerEvaporaciónSimulación.setModel(evaporacionSpn);
-        SpinnerNumberModel ciudadPartidaSpn = new SpinnerNumberModel();
-        ciudadPartidaSpn.setMinimum(0);
-        spinnerCiudadPartida.setModel(ciudadPartidaSpn);
-        SpinnerNumberModel ciudadLlegadaSpn = new SpinnerNumberModel();
-        ciudadLlegadaSpn.setMinimum(0);
-        spinnerCiudadLlegada.setModel(ciudadLlegadaSpn);&*/
         
         
     }
@@ -85,14 +61,15 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(625, 570));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 23)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Simulación");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 190, 50));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 240, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
@@ -137,6 +114,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         btnSimular.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnSimular.setForeground(new java.awt.Color(0, 102, 102));
         btnSimular.setText("Simular");
+        btnSimular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSimular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSimularActionPerformed(evt);
@@ -147,6 +125,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         btnVtnaSimularVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnVtnaSimularVolver.setForeground(new java.awt.Color(0, 102, 102));
         btnVtnaSimularVolver.setText("Volver");
+        btnVtnaSimularVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVtnaSimularVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVtnaSimularVolverActionPerformed(evt);
