@@ -12,7 +12,7 @@ public class AntOptimization {
     private int antsAmount;
     private double[][] phermonaMatrix;
     
-    Grafo grafo = Global.getGrafo();
+    Grafo grafo = GlobalGrafo.getGrafo();
     
     public AntOptimization(int numAnts){
         shortestDistance=0;antsAmount=numAnts;phermonaMatrix = new double[grafo.getMaxVerts()][grafo.getMaxVerts()];
@@ -41,7 +41,7 @@ public class AntOptimization {
         }
         double at=0;
         int cont = 0;
-        path += (cont_c + 1) + "\nFASE:" +  ":\n\n";
+        path += (cont_c + 1) +"FASE:" +  "\n\n";
         while (cont < antsAmount) {
             double currentDistance = 0;
             Ant hormiga = new Ant(grafo, r,s);
@@ -71,8 +71,7 @@ public class AntOptimization {
                 }
             }
             
-            at += 1/currentDistance;
-                            
+//            at += 1/currentDistance;
 
             if (shortestDistance == 0 || currentDistance < shortestDistance) {
                 bestPath = hormiga.print();
@@ -84,7 +83,7 @@ public class AntOptimization {
             cont ++;  
         } 
 
-        path += "Mejor Recorrido: " + bestPath  + "Distancia: " + shortestDistance + "\n";
+        path += "Mejor " + bestPath  + "Distancia: " + shortestDistance + "\n";
             
     return path;
     }

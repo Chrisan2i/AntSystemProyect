@@ -132,7 +132,7 @@ public class Ant {
      * @return 
      */
     public String print(){
-        String path = "Recorrido: ";
+        String path = "recorrido: ";
         
         for (int i = 0; i < citiesHistory.length && citiesHistory[i] != 0; i++){
             if (i == 0){

@@ -5,6 +5,7 @@ package antsystemproyect;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  * Esta clase representa el código e interfaz de la Ventana Principal que va a ser mostrado inicialmente para poder realizar las demás funciones.
@@ -14,14 +15,14 @@ import java.util.logging.Logger;
 
 public class Principal extends javax.swing.JFrame {
 
-    Grafo grafo = Global.getGrafo();
+    Grafo grafo = GlobalGrafo.getGrafo();
+    GraphStream visual = GlobalGraphStream.getGraph();
 
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        showGrafo.setText(grafo.print());
-
+        //showGrafo.setText(grafo.print());
     }
 
     
@@ -39,8 +40,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnVerGrafo = new javax.swing.JButton();
         btnBeingSimulation = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        showGrafo = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,15 +137,6 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(btnBeingSimulation, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 200, 40));
 
-        showGrafo.setColumns(20);
-        showGrafo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        showGrafo.setRows(5);
-        showGrafo.setAlignmentX(1.0F);
-        showGrafo.setAlignmentY(1.0F);
-        jScrollPane1.setViewportView(showGrafo);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 300, 170));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/FondoAntSystem.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 520));
 
@@ -176,9 +166,12 @@ public class Principal extends javax.swing.JFrame {
         
         try {
             doc.GuardarTxt();
+            JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente!!","EXITO",JOptionPane.INFORMATION_MESSAGE);
+            
 
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "No se ha guardado el guardado el grafo","ERROR",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnSaveGrafoActionPerformed
 
@@ -214,9 +207,10 @@ public class Principal extends javax.swing.JFrame {
 
                 grafo.addArista(v1, v2, s);
             }
-            showGrafo.setText(grafo.print());
+            JOptionPane.showMessageDialog(null, "Se ha cargado el grafo exitosamente !!","EXITO",JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Este archivo no contiene un grafo","ERROR",JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnLoadGrafoActionPerformed
@@ -227,8 +221,7 @@ public class Principal extends javax.swing.JFrame {
      */
     
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
-        GrafoLibrary graph= new GrafoLibrary();
-        graph.showGrafo(grafo.getArray());
+        visual.showGrafo();
     }//GEN-LAST:event_btnVerGrafoActionPerformed
 
     /**
@@ -299,7 +292,5 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea showGrafo;
     // End of variables declaration//GEN-END:variables
 }
