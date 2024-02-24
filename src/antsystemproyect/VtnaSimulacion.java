@@ -95,42 +95,42 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 190, 50));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setText("Indica el número de ciclos que deseas realizar:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 330, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
         jLabel3.setText("Indica el número de Hormigas que van a participar:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 360, 20));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setText("Indica los valores para el grado de importancia de la feromona:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 400, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
         jLabel5.setText("(Si deseas usar valores por defecto NO ingresar nada por teclado)");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 390, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel6.setForeground(new java.awt.Color(0, 102, 102));
         jLabel6.setText("Indica los valores para el grado de visibilidad de las ciudades: ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 390, 60));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 390, 40));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel7.setForeground(new java.awt.Color(0, 102, 102));
         jLabel7.setText("(Si deseas usar valores por defecto NO ingresar nada por teclado)");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 246, -1, 60));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 60));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel8.setForeground(new java.awt.Color(0, 102, 102));
         jLabel8.setText("Indica valores para el factor de evaporación o usar por defecto:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 390, 20));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel9.setForeground(new java.awt.Color(0, 102, 102));
         jLabel9.setText("Indica ciudad de llegada:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 170, 30));
 
@@ -155,7 +155,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         getContentPane().add(btnVtnaSimularVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 480, 130, 50));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel11.setForeground(new java.awt.Color(0, 102, 102));
         jLabel11.setText("Indica ciudad de partida:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 180, 20));
 
