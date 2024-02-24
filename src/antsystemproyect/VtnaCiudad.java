@@ -68,7 +68,6 @@ public class VtnaCiudad extends javax.swing.JFrame {
         showMatriz = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         TXT = new javax.swing.JLabel();
-        TEXT = new javax.swing.JLabel();
         txtAddAristaPrimeraCiudad = new javax.swing.JTextField();
 
         btnVtnaRemoveCity1.setText("Eliminar");
@@ -255,9 +254,6 @@ public class VtnaCiudad extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
         getContentPane().add(TXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
-        TEXT.setText("La martriz esta vacia");
-        getContentPane().add(TEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
-
         txtAddAristaPrimeraCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddAristaPrimeraCiudadActionPerformed(evt);
@@ -320,14 +316,19 @@ public class VtnaCiudad extends javax.swing.JFrame {
     
     private void btnVtnaAddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVtnaAddCityActionPerformed
         int c1;
+        int max = grafo.getNumVerts();
 
         try{
+            if("".equals(txtAddCity.getText())){
+                JOptionPane.showMessageDialog(null, "Agregue cuantas ciudades desea agregar");
+            }else{
+            
+            
             c1 = Integer.parseInt(txtAddCity.getText());
             
             grafo.insertVertice(c1);
-            TEXT.setText("Este grafo tiene " + grafo.getNumVerts());
             showMatriz.setText(grafo.print());
-            
+            }
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null,"Error el input no es un num");   
         }
@@ -344,13 +345,27 @@ public class VtnaCiudad extends javax.swing.JFrame {
         int c1;
         int c2;
         double p;
-        
+        int max = grafo.getNumVerts();
+
         try{
+            if("".equals(txtAddAristaPrimeraCiudad.getText())){
+                JOptionPane.showMessageDialog(null, "Agrega a que la primera ciudad");
+            }else if("".equals(txtAddSegundaAristaCity.getText())){
+                JOptionPane.showMessageDialog(null, "Agregue la segunda ciudad");
+            }else if("".equals(txtAddpesoCity.getText())){
+                JOptionPane.showMessageDialog(null, "Agregue la distancia entre las ciudades");
+            }else if(Integer.parseInt(txtAddAristaPrimeraCiudad.getText())> max){
+                JOptionPane.showMessageDialog(null, "Esta ciudad no se encuentra en el rango");
+            }else if(Integer.parseInt(txtAddSegundaAristaCity.getText())> max){
+                JOptionPane.showMessageDialog(null, "Esta ciudad no se encuentra en el rango");
+            }else{
+                
             c1 = Integer.parseInt(txtAddAristaPrimeraCiudad.getText());
             c2 = Integer.parseInt(txtAddSegundaAristaCity.getText());
             p = Double.parseDouble(txtAddpesoCity.getText());
             grafo.addArista(c1-1, c2-1, p);
             showMatriz.setText(grafo.print());
+        }
             
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null,"Error el input no es un num");   
@@ -386,12 +401,22 @@ public class VtnaCiudad extends javax.swing.JFrame {
     private void btnVtnaRemoveAriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVtnaRemoveAriActionPerformed
         int c1;
         int c2;
+        int max = grafo.getNumVerts();
         try{
+            if("".equals(txtDeleteAristaCiudadPartida.getText())){
+                JOptionPane.showMessageDialog(null, "Agrega a que la primera ciudad");
+            }else if("".equals(txtDeleteAristaCiudadLlegada.getText())){
+                JOptionPane.showMessageDialog(null, "Agregue la segunda ciudad");
+            }else if(Integer.parseInt(txtDeleteAristaCiudadPartida.getText())> max){
+                JOptionPane.showMessageDialog(null, "Esta ciudad no se encuentra en el rango");
+            }else if(Integer.parseInt(txtDeleteAristaCiudadLlegada.getText())> max){
+                JOptionPane.showMessageDialog(null, "Esta ciudad no se encuentra en el rango");
+            }else{
             c1 = Integer.parseInt(txtDeleteAristaCiudadPartida.getText());
             c2 = Integer.parseInt(txtDeleteAristaCiudadLlegada.getText());
             grafo.deleteArista(c1-1, c2-1);
             showMatriz.setText(grafo.print());
-            
+            }
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null,"Error el input no es un num");   
         }
@@ -413,12 +438,18 @@ public class VtnaCiudad extends javax.swing.JFrame {
     
     private void btnVtnaRemoveCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVtnaRemoveCityActionPerformed
         int c1;
+        int max = grafo.getNumVerts();
         try{
+            if("".equals(txtRemoveCity.getText())){
+                JOptionPane.showMessageDialog(null, "Agregue la ciudad que deseas eliminar");
+            }else if(Integer.parseInt(txtRemoveCity.getText())< max){
+                JOptionPane.showMessageDialog(null, "Esta ciudad no existe en el grafo");
+            }else{
             c1 = Integer.parseInt(txtRemoveCity.getText());
             
             grafo.removeVertice(c1);
             showMatriz.setText(grafo.print());
-            
+            }
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null,"Error el input no es un num");   
         }
@@ -461,7 +492,6 @@ public class VtnaCiudad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel TEXT;
     private javax.swing.JLabel TXT;
     private javax.swing.JButton btnVtnPrincipal;
     private javax.swing.JButton btnVtnaAddAristaCity;

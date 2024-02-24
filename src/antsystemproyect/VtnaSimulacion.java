@@ -233,14 +233,31 @@ public class VtnaSimulacion extends javax.swing.JFrame {
     
     private void btnSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularActionPerformed
         try{
-            
+            int mx = grafo.getNumVerts();
+            if("".equals(numCiclos.getText()) || Integer.parseInt(numCiclos.getText())==0){
+                JOptionPane.showMessageDialog(null, "Ingrese el numero de ciclos");
+            }else if("".equals(gradeP.getText())|| Double.parseDouble(gradeP.getText())==0){
+                JOptionPane.showMessageDialog(null, "Ingrese el grado de feromona");
+            }else if("".equals(gradeV.getText())|| Double.parseDouble(gradeV.getText())==0){
+                JOptionPane.showMessageDialog(null, "Ingrese el grado de Visibilidad");
+            }else if("".equals(factorE.getText())|| Double.parseDouble(factorE.getText())==0){
+                JOptionPane.showMessageDialog(null, "Ingrese el factor de evaporacion");
+            }else if("".equals(nido.getText())|| Integer.parseInt(nido.getText())==0){
+                JOptionPane.showMessageDialog(null, "Ingrese le punto de partida");
+            }else if("".equals(comida.getText())|| Integer.parseInt(comida.getText())==0){
+                JOptionPane.showMessageDialog(null, "Ingrese un punto de llegada");
+            }else if(Integer.parseInt(nido.getText()) > mx){
+                JOptionPane.showMessageDialog(null, "Ingrese un punto de partida valido");
+            }else if(Integer.parseInt(comida.getText())> mx+1){
+                JOptionPane.showMessageDialog(null, "Ingrese un punto de llegada valido");
+            }else{
             int antsAmount;
             double m = grafo.getNumVerts();
             
             antsAmount = Integer.parseInt(numAnts.getText());
          
             double ti = 1/m;        
-           
+            
             System.out.println(antsAmount);
             
             AntOptimization optimus = new AntOptimization(antsAmount);         
@@ -267,7 +284,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
             } 
             GraphStream visual = new GraphStream();
             visual.showGrafo(grafo.getArray());
-                
+            } 
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Ingrese un valor valido");
         }  

@@ -41,7 +41,7 @@ public class AntOptimization {
         }
         double at=0;
         int cont = 0;
-        path += (cont_c + 1) +"FASE:" +  "\n\n";
+        path += (cont_c + 1) +". FASE:" +  "\n\n";
         while (cont < antsAmount) {
             double currentDistance = 0;
             Ant hormiga = new Ant(grafo, r,s);
@@ -78,7 +78,7 @@ public class AntOptimization {
                 shortestDistance = currentDistance;
                 grafo.setArray(hormiga.getCitiesHistory());
             }
-            path += "Hormiga #" + (cont + 1) + ":\n" + "Distancia recorrida: " + currentDistance + "\n" + hormiga.print() + "\n";
+            path += "Hormiga #" + (cont + 1) + ":\n" + "Distancia recorrida: " + currentDistance + "\n" + hormiga.print() + "\n\n";
             
             cont ++;  
         } 
