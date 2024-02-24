@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  */
 
 public class VtnaCiudad extends javax.swing.JFrame {
-    Grafo grafo = Global.getGrafo();
+    Grafo grafo = GlobalGrafo.getGrafo();
     
     
     /**

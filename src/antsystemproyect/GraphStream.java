@@ -4,6 +4,7 @@ import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
 
 
 /**
@@ -11,12 +12,14 @@ import org.graphstream.graph.implementations.SingleGraph;
  * @author Jesús
  */
 
-public class GrafoLibrary {
-    Grafo graph = Global.getGrafo();
-    Graph grafo = new SingleGraph("GraphStream_");
+public class GraphStream {
+    Grafo graph = GlobalGrafo.getGrafo();
+    Graph grafo;
     
     /**
      * Método para visualizar el grafo creado.
+     * @param node
+     * @param color
      * @param numVerts
      * @param matrixAdy 
      */
@@ -29,9 +32,9 @@ public class GrafoLibrary {
         edge.setAttribute("ui.style", "fill-color: " + color + ";");
     }
     
-    public void showGrafo(int [] bestPath){
+    public void showGrafo(){
         System.setProperty("org.graphstream.ui", "swing");
-
+        grafo = new SingleGraph("GraphStream_");
         grafo.setAttribute("ui.stylesheet", styleSheet);
 
         grafo.setStrict(false);
@@ -48,23 +51,24 @@ public class GrafoLibrary {
                     String nodoFin = Integer.toString(j+1);
                     String arista = nodoIni+nodoFin;
                     grafo.addEdge(arista, nodoIni, nodoFin).setAttribute("length",graph.getMatrixAdy()[i][j]);
-                 
                 }
-                
             }
         }
-        
         grafo.nodes().forEach(n -> n.setAttribute("label", n.getId()));
         grafo.edges().forEach(e -> e.setAttribute("label", "" + (double) e.getNumber("length")));
-        
-        grafo.display();
-        
-        //Setter el color del nodo al camino mas optiomo 
-        for (int i = 1; i < bestPath.length; i++) {
-                setNodeColor(grafo.getNode(Integer.toString(bestPath[i])),"red");
+               
+        Viewer viewer = grafo.display();
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+    }
+    
+    public void Uptdate(){
+        grafo.setAttribute("ui.stylesheet", styleSheet);
+        if(graph.getArray() != null){
+            for (int i = 0; i < graph.getArray().length; i++) {
+                setNodeColor(grafo.getNode(Integer.toString(graph.getArray()[i])),"green");
+               
             }
-        //Setter el color de la arista
-        
+        }
     }
 
     protected static String styleSheet =

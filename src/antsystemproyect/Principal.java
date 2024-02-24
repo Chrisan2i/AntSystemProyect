@@ -5,6 +5,7 @@ package antsystemproyect;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  * Esta clase representa el código e interfaz de la Ventana Principal que va a ser mostrado inicialmente para poder realizar las demás funciones.
@@ -14,14 +15,14 @@ import java.util.logging.Logger;
 
 public class Principal extends javax.swing.JFrame {
 
-    Grafo grafo = Global.getGrafo();
+    Grafo grafo = GlobalGrafo.getGrafo();
+    GraphStream visual = GlobalGraphStream.getGraph();
 
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        showGrafo.setText(grafo.print());
-
+        //showGrafo.setText(grafo.print());
     }
 
     
@@ -39,8 +40,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnVerGrafo = new javax.swing.JButton();
         btnBeingSimulation = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        showGrafo = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,7 +70,7 @@ public class Principal extends javax.swing.JFrame {
                 btnAddCityActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAddCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 200, 40));
+        getContentPane().add(btnAddCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 200, 40));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -83,7 +85,7 @@ public class Principal extends javax.swing.JFrame {
                 btnSaveGrafoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSaveGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 200, 40));
+        getContentPane().add(btnSaveGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 200, 40));
 
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnExit.setText("Salir");
@@ -101,7 +103,7 @@ public class Principal extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 80, 40));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 200, 40));
 
         btnLoadGrafo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnLoadGrafo.setText("Cargar Grafo");
@@ -111,7 +113,7 @@ public class Principal extends javax.swing.JFrame {
                 btnLoadGrafoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLoadGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 200, 40));
+        getContentPane().add(btnLoadGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 200, 40));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -126,7 +128,7 @@ public class Principal extends javax.swing.JFrame {
                 btnVerGrafoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVerGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 200, 40));
+        getContentPane().add(btnVerGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 200, 40));
 
         btnBeingSimulation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBeingSimulation.setText("Iniciar Simulación");
@@ -136,16 +138,16 @@ public class Principal extends javax.swing.JFrame {
                 btnBeingSimulationActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBeingSimulation, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 200, 40));
+        getContentPane().add(btnBeingSimulation, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 200, 40));
 
-        showGrafo.setColumns(20);
-        showGrafo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        showGrafo.setRows(5);
-        showGrafo.setAlignmentX(1.0F);
-        showGrafo.setAlignmentY(1.0F);
-        jScrollPane1.setViewportView(showGrafo);
+        jLabel5.setText("Angulo, Jesús");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 300, 170));
+        jLabel6.setText("By:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 40, -1));
+
+        jLabel7.setText("Sanchez, Christian");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/FondoAntSystem.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 520));
@@ -176,9 +178,12 @@ public class Principal extends javax.swing.JFrame {
         
         try {
             doc.GuardarTxt();
+            JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente!!","EXITO",JOptionPane.INFORMATION_MESSAGE);
+            
 
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "No se ha guardado el guardado el grafo","ERROR",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnSaveGrafoActionPerformed
 
@@ -214,9 +219,10 @@ public class Principal extends javax.swing.JFrame {
 
                 grafo.addArista(v1, v2, s);
             }
-            showGrafo.setText(grafo.print());
+            JOptionPane.showMessageDialog(null, "Se ha cargado el grafo exitosamente !!","EXITO",JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Este archivo no contiene un grafo","ERROR",JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnLoadGrafoActionPerformed
@@ -227,8 +233,7 @@ public class Principal extends javax.swing.JFrame {
      */
     
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
-        GrafoLibrary graph= new GrafoLibrary();
-        graph.showGrafo(grafo.getArray());
+        visual.showGrafo();
     }//GEN-LAST:event_btnVerGrafoActionPerformed
 
     /**
@@ -298,8 +303,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea showGrafo;
     // End of variables declaration//GEN-END:variables
 }

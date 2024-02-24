@@ -21,7 +21,7 @@ public class FileChosser {
     private int numVert = 0;
     private int numAri = 0;
     private String[] aristas = new String[20];
-    Grafo grafo = Global.getGrafo();
+    Grafo grafo = GlobalGrafo.getGrafo();
     
     /**
      * Método para leer el archivo txt
