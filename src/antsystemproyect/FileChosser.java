@@ -1,7 +1,6 @@
 
 package antsystemproyect;
 
-import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -66,38 +65,31 @@ public class FileChosser {
                     i++;
                 }
                     line = in.readLine();
-            }
-                        
+            }            
 	}
     }
     
     public void GuardarTxt()throws FileNotFoundException, IOException{
-       // Creamos el objeto JFileChooser
+       
         JFileChooser fc = new JFileChooser();
             
         
         fc.setDialogTitle("Guardar Grafo...");
         fc.setDialogType(JFileChooser.SAVE_DIALOG);
 
-        // Añadimos un filtro para los archivos txt
-        fc.addChoosableFileFilter(new FileNameExtensionFilter("Archivos de texto", "txt"));
         
+        fc.addChoosableFileFilter(new FileNameExtensionFilter("Archivos de texto", "txt"));
 
-        // Mostramos el diálogo y guardamos la opción seleccionada
         int seleccion = fc.showSaveDialog(null);
 
-        // Si el usuario acepta, guardamos el archivo
         if (seleccion == JFileChooser.APPROVE_OPTION) {
-            // Obtenemos el archivo seleccionado
+            
             File fichero = fc.getSelectedFile();
 
-            // Comprobamos si el archivo tiene la extensión .txt
             if (!fichero.getName().endsWith(".txt")) {
-                // Si no la tiene, se la añadimos
+                
                 fichero = new File(fichero.getAbsolutePath() + ".txt");
-            }
-
-            // Creamos un FileWriter para escribir en el archivo
+            } 
             FileWriter fw = null;
             
             fw = new FileWriter(fichero);
@@ -109,11 +101,11 @@ public class FileChosser {
                 fw.write("\n");
             }
             
-            fw.write("Aristas\n");
+            fw.write("aristas\n");
             for (int i = 0; i < grafo.getNumVerts(); i++) {
                 for (int j = 0; j < grafo.getNumVerts(); j++) {
-                    if (grafo.getMatrixAdy()[i][j]!=0 ) {
-                        fw.write(String.valueOf(i+1)+" ,"+ String.valueOf(j+1) +" ,"+String.valueOf(grafo.getMatrixAdy()[i][j])+" ");
+                    if (grafo.getMatrixAdy()[i][j] != 0) {
+                        fw.write(String.valueOf(i+1)+","+ String.valueOf(j+1) +","+String.valueOf(grafo.getMatrixAdy()[i][j])+"");
                         fw.write("\n");
                     }
                 }
