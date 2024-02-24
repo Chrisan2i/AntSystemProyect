@@ -61,8 +61,6 @@ public class GrafoLibrary {
         
         
         grafo.display();
-       
-        
     }
 
     protected static String styleSheet =
