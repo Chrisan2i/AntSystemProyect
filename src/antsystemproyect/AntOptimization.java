@@ -49,6 +49,7 @@ public class AntOptimization {
             Ant hormiga = new Ant(grafo, r,s);
             hormiga.setΑ(phermona_grade);
             hormiga.setΒ(visibility_grade);
+            
 
             while (hormiga.getR() != hormiga.getS() && hormiga.getTrapped() == false) {
                 hormiga.calculateProbabilities(grafo, pheromoneQuantity);
@@ -79,6 +80,8 @@ public class AntOptimization {
                 shortestDistance = currentDistance;
             } else if (currentDistance < shortestDistance) {
                 shortestDistance = currentDistance;
+                
+              
             }
 
             
@@ -87,6 +90,7 @@ public class AntOptimization {
             cont ++;  
         } 
         result += "RECORRIDO MÁS OPTIMO: " + shortestDistance + "\n";
+        
             
     return result;
     }
