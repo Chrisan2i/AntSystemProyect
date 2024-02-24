@@ -15,6 +15,8 @@ public class Grafo {
     private int maxVerts;
     private int numVerts;
     private double[][] MatrixAdy;
+    //El mejor camino
+    private int [] array;
     
     /**
      * Constructor de la clase.
@@ -24,6 +26,7 @@ public class Grafo {
         maxVerts = n;
         numVerts = 0;
         MatrixAdy = new double[n][n];
+        array = new int[n];
     }
     
     /**
@@ -140,6 +143,14 @@ public class Grafo {
      */
     public void setMatrixAdy(double[][] MatrixAdy) {
         this.MatrixAdy = MatrixAdy;
+    }
+
+    public int[] getArray() {
+        return array;
+    }
+
+    public void setArray(int[] array) {
+        this.array = array;
     }
     
     

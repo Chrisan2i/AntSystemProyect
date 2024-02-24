@@ -68,7 +68,11 @@ public class FileChosser {
             }            
 	}
     }
-    
+    /**
+     * Método para Guardar un txt
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void GuardarTxt()throws FileNotFoundException, IOException{
        
         JFileChooser fc = new JFileChooser();

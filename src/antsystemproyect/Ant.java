@@ -27,11 +27,9 @@ public class Ant {
     private double Mk; 
     //Variable para las probabilidades de moverse de cada ciudad 
     private double[] Probabilities;
-    
-    private int [] array;
 
     public Ant (Grafo grafo, int r1, int s1) {
-        α = 1;β = 2;r = r1;s = s1;Q = 1;Mk = 0;visited = false;citiesHistory = new int[grafo.getMaxVerts()];citiesHistory[0] = r;Mk = 0;array = new int[grafo.getMaxVerts()];
+        α = 1;β = 2;r = r1;s = s1;Q = 1;Mk = 0;visited = false;citiesHistory = new int[grafo.getMaxVerts()];citiesHistory[0] = r;Mk = 0;
     }
 
     /**
@@ -198,10 +196,7 @@ public class Ant {
     public int[] getCitiesHistory() {
         return citiesHistory;
     }
-
-    public void setArray(int[] array) {
-        this.array = array;
-    }
+    
     
     
     public int getR() {
@@ -212,6 +207,7 @@ public class Ant {
         return s;
     }
 
+    
     public double getΑ() {
         return α;
     }

@@ -30,7 +30,7 @@ public class AntOptimization {
      * @return 
      */
     public String Simulacion(double t,double gradeP,double gradeV,int r,int s,int cont_c,double evaporationF){
-        String result="";
+        String path="";
         double shortestDistance = 0;
         
         String bestPath =" ";
@@ -41,7 +41,7 @@ public class AntOptimization {
         }
         double at=0;
         int cont = 0;
-        result += "\nFase -" + (cont_c + 1) + ":\n\n";
+        path += (cont_c + 1) + "\nFASE:" +  ":\n\n";
         while (cont < antsAmount) {
             double currentDistance = 0;
             Ant hormiga = new Ant(grafo, r,s);
@@ -76,17 +76,17 @@ public class AntOptimization {
 
             if (shortestDistance == 0 || currentDistance < shortestDistance) {
                 bestPath = hormiga.print();
-                hormiga.setArray(hormiga.getCitiesHistory());
-
+                shortestDistance = currentDistance;
+                grafo.setArray(hormiga.getCitiesHistory());
             }
-            result += "Hormiga #" + (cont + 1) + ":\n" + "Distancia recorrida: " + currentDistance + "\n" + hormiga.print() + "\n";
+            path += "Hormiga #" + (cont + 1) + ":\n" + "Distancia recorrida: " + currentDistance + "\n" + hormiga.print() + "\n";
             
             cont ++;  
         } 
 
-        result += "Mejor Recorrido: " + bestPath  + "Distancia " + shortestDistance;
+        path += "Mejor Recorrido: " + bestPath  + "Distancia: " + shortestDistance + "\n";
             
-    return result;
+    return path;
     }
 
 
