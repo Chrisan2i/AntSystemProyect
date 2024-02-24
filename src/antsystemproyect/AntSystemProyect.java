@@ -5,7 +5,7 @@
 package antsystemproyect;
 
 /**
- *
+ *Clase main del programa.
  * @author chris
  */
 public class AntSystemProyect {

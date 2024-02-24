@@ -3,7 +3,7 @@ package antsystemproyect;
 
 import java.util.Random;
 /**
- * 
+ * Clase implementada de la Hormiga con parametros y sus respectivos métodos.
  * @author chris
  */
 public class Ant {
@@ -32,7 +32,12 @@ public class Ant {
         α = 1;β = 2;r = r1;s = s1;Q = 1;Mk = 0;visited = false;citiesHistory = new int[matrix.getMaxVerts()];citiesHistory[0] = r;Mk = 0;
     }
 
-    // Calculamos las probabilidades
+    /**
+     * Método que calculamos las probabilidades
+     * @param graph
+     * @param phermone
+     * @return 
+     */
     public int calculateProbabilities(Grafo graph,double phermone[][]) {
         if (r == s) {
             return r;
@@ -123,7 +128,10 @@ public class Ant {
         }
     }
     
-    //Imprime el recorrido de cada hormiga en un array
+    /**
+     * Imprime el recorrido de cada hormiga en un array
+     * @return 
+     */
     public String print(){
         String path = "Recorrido: ";
         
@@ -145,16 +153,30 @@ public class Ant {
         return path;
     }
     
-    //Formula de probabilidad
+    /**
+     * Formula de probabilidad.
+     * @param drs
+     * @param t
+     * @return 
+     */
     public double formula(double drs,double t){
         return Math.pow(t, α) * Math.pow((Q/drs), β);
     }
-    //Formula de evaporacion
+    /**
+     * Formula de probabilidad.
+     * @param p
+     * @param t
+     * @param dt
+     * @return 
+     */
     public double evaporation(double p, double t,double dt) {
         return (1 - p)*(t)+ dt;
     }
 
-    // MÉTODOS SET!
+    /**
+     * Getters anda Setters.
+     * @param r 
+     */
     public void setR(int r) {
         this.r = r;
     }

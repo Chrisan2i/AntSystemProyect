@@ -83,6 +83,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
         ciclos5 = new javax.swing.JTextField();
         numAnts = new javax.swing.JTextField();
         nido = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(625, 570));
@@ -220,6 +221,9 @@ public class VtnaSimulacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 120, 30));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesProyecto/ImagenSimulacion1.jpg.png"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -359,6 +363,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
     private javax.swing.JTextField gradeP;
     private javax.swing.JTextField gradeV;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

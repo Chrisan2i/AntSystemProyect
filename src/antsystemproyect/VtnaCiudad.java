@@ -3,7 +3,8 @@ package antsystemproyect;
 import javax.swing.JOptionPane;
 
 /**
- * Esta clase representa el código e interfaz de la Ventana para implementar y modificar ciudades que va a ser mostrado una vez el usuario ingrse en el botón correspondiente del Menú Principal.
+ * Esta clase representa el código e interfaz de la Ventana para implementar y modificar ciudades que va a ser mostrado una vez el usuario ingrse en el botón 
+ * correspondiente del Menú Principal.
  * @author Jesús
  */
 

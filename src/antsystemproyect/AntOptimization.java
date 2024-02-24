@@ -4,11 +4,13 @@
  */
 package antsystemproyect;
 /**
- * 
+ * Clase de la Optimización de la Hormiga.
  * @author chris
  */
 public class AntOptimization {
-    
+    /**
+     * Atributos de la clase.
+     */
     private double shortestDistance;
     private int antsAmount;
     private double[][] pheromoneQuantity;
@@ -19,7 +21,16 @@ public class AntOptimization {
         shortestDistance=0;antsAmount=numAnts;pheromoneQuantity = new double[grafo.getMaxVerts()][grafo.getMaxVerts()];
     }
     
-    
+    /**
+     * Método que se implementa en la Simulación con las hormigas.
+     * @param ti
+     * @param phermona_grade
+     * @param visibility_grade
+     * @param r
+     * @param s
+     * @param cont_c
+     * @return 
+     */
     public String Simulacion(double ti,double phermona_grade,double visibility_grade,int r,int s,int cont_c){//double evaporationFactor
         String result="";
         double shortestDistance = 0;

@@ -10,6 +10,12 @@ import org.graphstream.graph.implementations.SingleGraph;
 
 public class GrafoLibrary {
 
+    /**
+     * Método para visualizar el grafo creado.
+     * @param numVerts
+     * @param matrixAdy 
+     */
+    
     public void showGrafo(int numVerts, double[][] matrixAdy){
         System.setProperty("org.graphstream.ui", "swing");
 
