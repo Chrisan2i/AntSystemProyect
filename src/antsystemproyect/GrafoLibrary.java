@@ -1,7 +1,10 @@
 
 package antsystemproyect;
 import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.implementations.SingleGraph;
+
 
 /**
  * Clase implementada para la librería del Grafo GraphStream.
@@ -9,46 +12,59 @@ import org.graphstream.graph.implementations.SingleGraph;
  */
 
 public class GrafoLibrary {
-
+    Grafo graph = Global.getGrafo();
+    Graph grafo = new SingleGraph("GraphStream_");
+    
     /**
      * Método para visualizar el grafo creado.
      * @param numVerts
      * @param matrixAdy 
      */
     
-    public void showGrafo(int numVerts, double[][] matrixAdy){
+    public static void setNodeColor(Node node, String color) {
+        node.setAttribute("ui.style", "fill-color: " + color + ";");
+    }
+    
+    public static void setEdgeColor(Edge edge, String color) {
+        edge.setAttribute("ui.style", "fill-color: " + color + ";");
+    }
+    
+    public void showGrafo(int [] bestPath){
         System.setProperty("org.graphstream.ui", "swing");
 
-    Graph grafo = new SingleGraph("GraphStream_");
+        grafo.setAttribute("ui.stylesheet", styleSheet);
 
-    grafo.setAttribute("ui.stylesheet", styleSheet);
+        grafo.setStrict(false);
+        grafo.setAutoCreate( true );
 
-    grafo.setStrict(false);
-    grafo.setAutoCreate( true );
-
-        for (int i = 1; i <= numVerts; i++) {
+        for (int i = 1; i <= graph.getNumVerts(); i++) {
             grafo.addNode(Integer.toString(i));
         }
-
-        for (int i = 0; i < numVerts; i++) {
-            for (int j = i; j < numVerts; j++) {
-                if(matrixAdy[i][j] != 0){
+        
+        for (int i = 0; i < graph.getNumVerts(); i++) {
+            for (int j = i; j < graph.getNumVerts(); j++) {
+                if(graph.getMatrixAdy()[i][j] != 0){
                     String nodoIni = Integer.toString(i+1);
                     String nodoFin = Integer.toString(j+1);
                     String arista = nodoIni+nodoFin;
-                    grafo.addEdge(arista, nodoIni, nodoFin).setAttribute("length", matrixAdy[i][j]);
+                    grafo.addEdge(arista, nodoIni, nodoFin).setAttribute("length",graph.getMatrixAdy()[i][j]);
                  
                 }
                 
             }
         }
-
+        
         grafo.nodes().forEach(n -> n.setAttribute("label", n.getId()));
         grafo.edges().forEach(e -> e.setAttribute("label", "" + (double) e.getNumber("length")));
-
-        
         
         grafo.display();
+        
+        //Setter el color del nodo al camino mas optiomo 
+        for (int i = 1; i < bestPath.length; i++) {
+                setNodeColor(grafo.getNode(Integer.toString(bestPath[i])),"red");
+            }
+        //Setter el color de la arista
+        
     }
 
     protected static String styleSheet =

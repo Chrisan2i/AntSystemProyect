@@ -228,7 +228,7 @@ public class Principal extends javax.swing.JFrame {
     
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
         GrafoLibrary graph= new GrafoLibrary();
-        graph.showGrafo(grafo.getNumVerts(), grafo.getMatrixAdy());
+        graph.showGrafo(grafo.getArray());
     }//GEN-LAST:event_btnVerGrafoActionPerformed
 
     /**
