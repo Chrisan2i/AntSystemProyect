@@ -236,6 +236,8 @@ public class VtnaSimulacion extends javax.swing.JFrame {
             int mx = grafo.getNumVerts();
             if("".equals(numCiclos.getText()) || Integer.parseInt(numCiclos.getText())==0){
                 JOptionPane.showMessageDialog(null, "Ingrese el numero de ciclos");
+            }else if("".equals(numAnts.getText())|| Integer.parseInt(numAnts.getText())==0){
+                JOptionPane.showMessageDialog(null, "Ingrese el número de hormigas");
             }else if("".equals(gradeP.getText())|| Double.parseDouble(gradeP.getText())==0){
                 JOptionPane.showMessageDialog(null, "Ingrese el grado de feromona");
             }else if("".equals(gradeV.getText())|| Double.parseDouble(gradeV.getText())==0){
@@ -243,7 +245,7 @@ public class VtnaSimulacion extends javax.swing.JFrame {
             }else if("".equals(factorE.getText())|| Double.parseDouble(factorE.getText())==0){
                 JOptionPane.showMessageDialog(null, "Ingrese el factor de evaporacion");
             }else if("".equals(nido.getText())|| Integer.parseInt(nido.getText())==0){
-                JOptionPane.showMessageDialog(null, "Ingrese le punto de partida");
+                JOptionPane.showMessageDialog(null, "Ingrese el punto de partida");
             }else if("".equals(comida.getText())|| Integer.parseInt(comida.getText())==0){
                 JOptionPane.showMessageDialog(null, "Ingrese un punto de llegada");
             }else if(Integer.parseInt(nido.getText()) > mx){
