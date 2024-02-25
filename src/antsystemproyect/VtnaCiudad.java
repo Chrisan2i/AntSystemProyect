@@ -319,7 +319,7 @@ public class VtnaCiudad extends javax.swing.JFrame {
         int max = grafo.getNumVerts();
 
         try{
-            if("".equals(txtAddCity.getText())){
+            if("".equals(txtAddCity.getText())||Integer.parseInt(txtAddCity.getText())== 0){
                 JOptionPane.showMessageDialog(null, "Agregue cuantas ciudades desea agregar");
             }else{
             
@@ -348,15 +348,15 @@ public class VtnaCiudad extends javax.swing.JFrame {
         int max = grafo.getNumVerts();
 
         try{
-            if("".equals(txtAddAristaPrimeraCiudad.getText())){
+            if("".equals(txtAddAristaPrimeraCiudad.getText())||Integer.parseInt(txtAddAristaPrimeraCiudad.getText())==0){
                 JOptionPane.showMessageDialog(null, "Agrega a que la primera ciudad");
-            }else if("".equals(txtAddSegundaAristaCity.getText())){
+            }else if("".equals(txtAddSegundaAristaCity.getText())||Integer.parseInt(txtAddSegundaAristaCity.getText())==0){
                 JOptionPane.showMessageDialog(null, "Agregue la segunda ciudad");
-            }else if("".equals(txtAddpesoCity.getText())){
+            }else if("".equals(txtAddpesoCity.getText())||Double.parseDouble(txtAddpesoCity.getText())==0){
                 JOptionPane.showMessageDialog(null, "Agregue la distancia entre las ciudades");
-            }else if(Integer.parseInt(txtAddAristaPrimeraCiudad.getText())> max){
+            }else if(Integer.parseInt(txtAddAristaPrimeraCiudad.getText())< 0 || Integer.parseInt(txtAddSegundaAristaCity.getText()) >max ){
                 JOptionPane.showMessageDialog(null, "Esta ciudad no se encuentra en el rango");
-            }else if(Integer.parseInt(txtAddSegundaAristaCity.getText())> max){
+            }else if(Integer.parseInt(txtAddSegundaAristaCity.getText())< 0 || Integer.parseInt(txtAddSegundaAristaCity.getText()) > max){
                 JOptionPane.showMessageDialog(null, "Esta ciudad no se encuentra en el rango");
             }else{
                 
@@ -407,9 +407,9 @@ public class VtnaCiudad extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Agrega a que la primera ciudad");
             }else if("".equals(txtDeleteAristaCiudadLlegada.getText())){
                 JOptionPane.showMessageDialog(null, "Agregue la segunda ciudad");
-            }else if(Integer.parseInt(txtDeleteAristaCiudadPartida.getText())> max){
+            }else if(Integer.parseInt(txtDeleteAristaCiudadPartida.getText())< 0 || Integer.parseInt(txtDeleteAristaCiudadPartida.getText()) >max ){
                 JOptionPane.showMessageDialog(null, "Esta ciudad no se encuentra en el rango");
-            }else if(Integer.parseInt(txtDeleteAristaCiudadLlegada.getText())> max){
+            }else if(Integer.parseInt(txtDeleteAristaCiudadLlegada.getText())< 0 || Integer.parseInt(txtDeleteAristaCiudadLlegada.getText()) >max ){
                 JOptionPane.showMessageDialog(null, "Esta ciudad no se encuentra en el rango");
             }else{
             c1 = Integer.parseInt(txtDeleteAristaCiudadPartida.getText());
@@ -442,7 +442,7 @@ public class VtnaCiudad extends javax.swing.JFrame {
         try{
             if("".equals(txtRemoveCity.getText())){
                 JOptionPane.showMessageDialog(null, "Agregue la ciudad que deseas eliminar");
-            }else if(Integer.parseInt(txtRemoveCity.getText())< max){
+            }else if(Integer.parseInt(txtRemoveCity.getText())< 0 || Integer.parseInt(txtRemoveCity.getText()) >max){
                 JOptionPane.showMessageDialog(null, "Esta ciudad no existe en el grafo");
             }else{
             c1 = Integer.parseInt(txtRemoveCity.getText());

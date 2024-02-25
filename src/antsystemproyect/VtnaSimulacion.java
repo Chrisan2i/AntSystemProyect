@@ -248,9 +248,9 @@ public class VtnaSimulacion extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ingrese el punto de partida");
             }else if("".equals(comida.getText())|| Integer.parseInt(comida.getText())==0){
                 JOptionPane.showMessageDialog(null, "Ingrese un punto de llegada");
-            }else if(Integer.parseInt(nido.getText()) > mx){
+            }else if(Integer.parseInt(nido.getText())< 0 || Integer.parseInt(comida.getText()) > mx){
                 JOptionPane.showMessageDialog(null, "Ingrese un punto de partida valido");
-            }else if(Integer.parseInt(comida.getText())> mx+1){
+            }else if(Integer.parseInt(nido.getText())< 0 || Integer.parseInt(comida.getText()) > mx){
                 JOptionPane.showMessageDialog(null, "Ingrese un punto de llegada valido");
             }else{
             int antsAmount;
@@ -260,9 +260,9 @@ public class VtnaSimulacion extends javax.swing.JFrame {
          
             double ti = 1/m;        
             
-            System.out.println(antsAmount);
+            //Inicializamos la clase AntOptimization
+            AntOptimization optimus = new AntOptimization(antsAmount);       
             
-            AntOptimization optimus = new AntOptimization(antsAmount);         
             int cycles = Integer.parseInt(numCiclos.getText());
             double GPhermone = Double.parseDouble(gradeP.getText());
             double GVisibility = Double.parseDouble(gradeV.getText());

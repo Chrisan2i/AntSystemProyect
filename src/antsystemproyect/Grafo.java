@@ -93,7 +93,7 @@ public class Grafo {
      */
     public String print(){
         String Matrix = "";
-        System.out.println("La matriz tiene " + getNumVerts() + " vertices \n");
+        //System.out.println("La matriz tiene " + getNumVerts() + " vertices \n");
         for (int i = 0; i < getNumVerts(); i++) {
             for (int j = 0; j < getNumVerts(); j++) {
                 Matrix += "[" + getMatrixAdy()[i][j] + "]" + " ";
